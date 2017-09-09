@@ -16,7 +16,9 @@
 		0D77812D1F63A5B4004E30B3 /* WeEatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77812C1F63A5B4004E30B3 /* WeEatTests.swift */; };
 		0D7781381F63A5B4004E30B3 /* WeEatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7781371F63A5B4004E30B3 /* WeEatUITests.swift */; };
 		0D77814A1F63AFC7004E30B3 /* setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7781491F63AFC7004E30B3 /* setup.swift */; };
-		0D77814C1F6474A4004E30B3 /* menuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77814B1F6474A4004E30B3 /* menuVC.swift */; };
+		E19B12201F6478A900C103A8 /* discoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B121F1F6478A900C103A8 /* discoverVC.swift */; };
+		E19B12221F6483A900C103A8 /* requestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B12211F6483A900C103A8 /* requestsVC.swift */; };
+		E19B12241F64887400C103A8 /* chatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B12231F64887400C103A8 /* chatsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +54,9 @@
 		0D7781371F63A5B4004E30B3 /* WeEatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeEatUITests.swift; sourceTree = "<group>"; };
 		0D7781391F63A5B4004E30B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D7781491F63AFC7004E30B3 /* setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setup.swift; sourceTree = "<group>"; };
-		0D77814B1F6474A4004E30B3 /* menuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuVC.swift; sourceTree = "<group>"; };
+		E19B121F1F6478A900C103A8 /* discoverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = discoverVC.swift; sourceTree = "<group>"; };
+		E19B12211F6483A900C103A8 /* requestsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = requestsVC.swift; sourceTree = "<group>"; };
+		E19B12231F64887400C103A8 /* chatsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,9 +111,11 @@
 				0D7781161F63A5B4004E30B3 /* ViewController.swift */,
 				0D7781491F63AFC7004E30B3 /* setup.swift */,
 				0D7781181F63A5B4004E30B3 /* Main.storyboard */,
+				E19B12211F6483A900C103A8 /* requestsVC.swift */,
 				0D77811E1F63A5B4004E30B3 /* Assets.xcassets */,
+				E19B12231F64887400C103A8 /* chatsVC.swift */,
 				0D7781201F63A5B4004E30B3 /* LaunchScreen.storyboard */,
-				0D77814B1F6474A4004E30B3 /* menuVC.swift */,
+				E19B121F1F6478A900C103A8 /* discoverVC.swift */,
 				0D7781231F63A5B4004E30B3 /* Info.plist */,
 				0D77811B1F63A5B4004E30B3 /* WeEat.xcdatamodeld */,
 			);
@@ -268,9 +274,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D77814C1F6474A4004E30B3 /* menuVC.swift in Sources */,
+				E19B12221F6483A900C103A8 /* requestsVC.swift in Sources */,
 				0D7781171F63A5B4004E30B3 /* ViewController.swift in Sources */,
 				0D77811D1F63A5B4004E30B3 /* WeEat.xcdatamodeld in Sources */,
+				E19B12241F64887400C103A8 /* chatsVC.swift in Sources */,
+				E19B12201F6478A900C103A8 /* discoverVC.swift in Sources */,
 				0D7781151F63A5B4004E30B3 /* AppDelegate.swift in Sources */,
 				0D77814A1F63AFC7004E30B3 /* setup.swift in Sources */,
 			);
@@ -519,6 +527,7 @@
 				0D77813E1F63A5B4004E30B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0D77813F1F63A5B4004E30B3 /* Build configuration list for PBXNativeTarget "WeEatTests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +536,7 @@
 				0D7781411F63A5B4004E30B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0D7781421F63A5B4004E30B3 /* Build configuration list for PBXNativeTarget "WeEatUITests" */ = {
 			isa = XCConfigurationList;
@@ -535,6 +545,7 @@
 				0D7781441F63A5B4004E30B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
