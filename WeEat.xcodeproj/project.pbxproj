@@ -16,6 +16,7 @@
 		0D77812D1F63A5B4004E30B3 /* WeEatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77812C1F63A5B4004E30B3 /* WeEatTests.swift */; };
 		0D7781381F63A5B4004E30B3 /* WeEatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7781371F63A5B4004E30B3 /* WeEatUITests.swift */; };
 		0D77814A1F63AFC7004E30B3 /* setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7781491F63AFC7004E30B3 /* setup.swift */; };
+		0D77814C1F6474A4004E30B3 /* menuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77814B1F6474A4004E30B3 /* menuVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		0D7781371F63A5B4004E30B3 /* WeEatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeEatUITests.swift; sourceTree = "<group>"; };
 		0D7781391F63A5B4004E30B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D7781491F63AFC7004E30B3 /* setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setup.swift; sourceTree = "<group>"; };
+		0D77814B1F6474A4004E30B3 /* menuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				0D7781181F63A5B4004E30B3 /* Main.storyboard */,
 				0D77811E1F63A5B4004E30B3 /* Assets.xcassets */,
 				0D7781201F63A5B4004E30B3 /* LaunchScreen.storyboard */,
+				0D77814B1F6474A4004E30B3 /* menuVC.swift */,
 				0D7781231F63A5B4004E30B3 /* Info.plist */,
 				0D77811B1F63A5B4004E30B3 /* WeEat.xcdatamodeld */,
 			);
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D77814C1F6474A4004E30B3 /* menuVC.swift in Sources */,
 				0D7781171F63A5B4004E30B3 /* ViewController.swift in Sources */,
 				0D77811D1F63A5B4004E30B3 /* WeEat.xcdatamodeld in Sources */,
 				0D7781151F63A5B4004E30B3 /* AppDelegate.swift in Sources */,

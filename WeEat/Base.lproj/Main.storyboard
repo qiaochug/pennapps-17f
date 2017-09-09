@@ -53,6 +53,31 @@
             </objects>
             <point key="canvasLocation" x="108" y="83"/>
         </scene>
+        <!--MenuVC-->
+        <scene sceneID="gQw-QE-HW3">
+            <objects>
+                <viewController id="zHr-6H-EKG" customClass="menuVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ive-v9-Bg5"/>
+                        <viewControllerLayoutGuide type="bottom" id="ujC-zG-Bvi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dID-ok-rNp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lrg-ga-ge5">
+                                <rect key="frame" x="119" y="43" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DG3-zU-CbU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1222" y="635"/>
+        </scene>
         <!--setup-->
         <scene sceneID="Awj-ke-vMF">
             <objects>
@@ -185,6 +210,7 @@
                                 </state>
                                 <connections>
                                     <action selector="donebutton:" destination="cSK-E2-aSI" eventType="touchUpInside" id="FLj-VF-EWd"/>
+                                    <segue destination="zHr-6H-EKG" kind="show" id="Fkk-sC-mVc"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AIE-TE-j4h">
@@ -213,7 +239,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8kL-NB-EAz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="788" y="139.880059970015"/>
+            <point key="canvasLocation" x="946" y="-39"/>
         </scene>
     </scenes>
 </document>
