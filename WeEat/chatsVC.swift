@@ -8,9 +8,11 @@
 
 import UIKit
 
+var friends = [p1, p2, p3]
+
 class chatsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var friends = [p1, p2, p3]
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -48,6 +50,12 @@ class chatsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         print("yah")
     }
     
+    
+    
+    @IBAction func refreshButton(_ sender: Any) {
+        self.tableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let messengerAction = UITableViewRowAction(style: .default, title: "Messenger") {(action, index) in
             print("saved")
@@ -57,7 +65,7 @@ class chatsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") {(action, index) in
-            self.friends.remove(at: indexPath.row)
+            friends.remove(at: indexPath.row)
             tableView.reloadData()
         }
         

@@ -30,20 +30,22 @@ var p5 = person(id: 2, name: "Linzhi", loginTime: (15, 39), tags: ["Code", "Slee
 
 var p6 = person(id: 2, name: "Zackery", loginTime: (15, 39), tags: ["Code", "Sleep", "Eat"], isStudent: true, classYear: 2020, isActive: true)
 
-class discoverVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class discoveryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
     @IBOutlet weak var tableView: UITableView!
     
     var people : [person] = [p1, p2, p3, p4, p5, p6]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -86,8 +88,8 @@ class discoverVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         return [sendRQAction]
     }
-
-
     
-
+    
+    
+    
 }

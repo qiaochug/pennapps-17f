@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class setup: UIViewController, UIPickerViewDelegate,UITextFieldDelegate,UIPickerViewDataSource {
     
@@ -23,6 +25,7 @@ class setup: UIViewController, UIPickerViewDelegate,UITextFieldDelegate,UIPicker
     @IBOutlet weak var doneb: UIButton!
     
     @IBAction func donebutton(_ sender: Any) {
+        send()
     }
     
     @IBOutlet weak var schoolpicker: UIPickerView!
@@ -154,14 +157,32 @@ class setup: UIViewController, UIPickerViewDelegate,UITextFieldDelegate,UIPicker
         }
     }
     
-    /*
-    // MARK: - Navigation
+    func send(){
+        print (self_id)
+        let par:[String: Any] = [
+            "type": "update",
+            "args": [
+                "table":"user_db",
+                "$set":
+                    ["user_tags": [tag1.text, tag2.text, tag3.text, tag4.text, tag5.text, tag6.text], "user_school": schooldisplay.text, "user_class": classdisplay.text, "user_iden": identdisplay.text, "user_major": major.text]
+                ,
+                "where": ["user_id": self_id],
+                "returning":["user_id"]
+                ]
+        ]
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer l7lx5235jebsvtm36nxxhtiiy6poupk1",
+            "Content-Type": "application/json"
+        ]
+        
+        
+        Alamofire.request("https://data.breezily98.hasura-app.io/v1/query", method: .post, parameters: par, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            print(response.result.value)
+            
+        }
+        
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
 
 }

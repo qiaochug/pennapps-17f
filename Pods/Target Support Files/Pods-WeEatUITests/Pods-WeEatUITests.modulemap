@@ -1,0 +1,6 @@
+framework module Pods_WeEatUITests {
+  umbrella header "Pods-WeEatUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

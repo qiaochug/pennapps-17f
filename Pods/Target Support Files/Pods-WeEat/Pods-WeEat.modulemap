@@ -1,0 +1,6 @@
+framework module Pods_WeEat {
+  umbrella header "Pods-WeEat-umbrella.h"
+
+  export *
+  module * { export * }
+}

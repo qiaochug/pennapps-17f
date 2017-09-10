@@ -65,6 +65,8 @@ class requestsVC: UIViewController, UITableViewDelegate, UITableViewDataSource  
         
         let acceptAction = UITableViewRowAction(style: .default, title: "Accept") {(action, index) in
             
+            
+            friends.append(self.requests[indexPath.row].friend)
         }
         
         acceptAction.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
