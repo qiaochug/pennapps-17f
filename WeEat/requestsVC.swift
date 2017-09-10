@@ -16,7 +16,8 @@ struct friendRQ {
 let rq1 = friendRQ(friend: p1, isSender: true)
 let rq2 = friendRQ(friend: p2, isSender: true)
 let rq3 = friendRQ(friend: p3, isSender: true)
-let rq4 = friendRQ(friend: p4, isSender: true)
+let rq4 = friendRQ(friend: p3, isSender: true)
+
 
 
 class requestsVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
@@ -32,6 +33,11 @@ class requestsVC: UIViewController, UITableViewDelegate, UITableViewDataSource  
         // Do any additional setup after loading the view.
     }
 
+    
+    @IBAction func refreshButton(_ sender: Any) {
+        self.tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -65,8 +71,9 @@ class requestsVC: UIViewController, UITableViewDelegate, UITableViewDataSource  
         
         let acceptAction = UITableViewRowAction(style: .default, title: "Accept") {(action, index) in
             
-            
             friends.append(self.requests[indexPath.row].friend)
+            
+            //self.requests.remove(at: indexPath.row)
         }
         
         acceptAction.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)

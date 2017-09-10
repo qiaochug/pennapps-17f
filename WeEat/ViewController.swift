@@ -92,7 +92,7 @@ class ViewController: UIViewController {
         print("Hello");
     }
     @IBAction func reportButton(_ sender: Any) {
-        let alert = UIAlertController(title: "Report", message: "Why do you want to report?", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Report", message: "What do you want to report?", preferredStyle: UIAlertControllerStyle.alert)
 
         alert.addTextField { (textField) in
             textField.text = "Please enter here"
@@ -106,17 +106,6 @@ class ViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler:nil))
         
         self.present(alert, animated: true, completion: nil)
-    }
-
-    @IBAction func requestButton(_ sender: Any) {
-        let alertController = UIAlertController(title: "Request Confirmation", message:
-            "Are you sure you want to send the request?", preferredStyle: UIAlertControllerStyle.alert)
-        
-        alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default,handler: {UIAlertAction in self.requestConfirmed()}))
-        
-        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default,handler: nil))
-    
-        self.present(alertController, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

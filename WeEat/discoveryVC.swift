@@ -7,35 +7,35 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 struct person {
     var id: Int
     var name: String
-    var loginTime: (Int, Int)
+    var loginTime: String
     var tags: [String]
-    var isStudent: Bool
-    var classYear: Int
+    var isStudent: String
+    var classYear: String
     var isActive: Bool
+    var major: String
+    var sendFrom: [String]
 }
 
-var p1 = person(id: 1, name: "Nova", loginTime: (15, 36), tags: ["Code", "Sleep", "Eat"], isStudent: true, classYear: 2020, isActive: true)
+var p1 = person(id: 1, name: "Nova", loginTime: "1536", tags: ["Code", "Sleep", "Eat"], isStudent: "Student", classYear: "2020", isActive: true, major: "CIS", sendFrom: ["2"])
 
-var p2 = person(id: 2, name: "Kevin", loginTime: (15, 39), tags: ["Code", "Sleep", "Eat"], isStudent: true, classYear: 2020, isActive: true)
+var p2 = person(id: 2, name: "Kevin", loginTime: "1539", tags: ["Code", "Sleep", "Eat"], isStudent: "Student", classYear: "2020", isActive: true, major : "CIS", sendFrom: [])
 
-var p3 = person(id: 2, name: "Nicole", loginTime: (15, 39), tags: ["Code", "Sleep", "Eat"], isStudent: true, classYear: 2020, isActive: true)
+var p3 = person(id: 3, name: "Kevin", loginTime: "1539", tags: ["Code", "Sleep", "Eat"], isStudent: "Student", classYear: "2020", isActive: true, major : "CIS", sendFrom: [])
 
-var p4 = person(id: 2, name: "Michael", loginTime: (15, 39), tags: ["Code", "Sleep", "Eat"], isStudent: true, classYear: 2020, isActive: true)
 
-var p5 = person(id: 2, name: "Linzhi", loginTime: (15, 39), tags: ["Code", "Sleep", "Eat"], isStudent: true, classYear: 2020, isActive: true)
-
-var p6 = person(id: 2, name: "Zackery", loginTime: (15, 39), tags: ["Code", "Sleep", "Eat"], isStudent: true, classYear: 2020, isActive: true)
 
 class discoveryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     @IBOutlet weak var tableView: UITableView!
     
-    var people : [person] = [p1, p2, p3, p4, p5, p6]
+    var people : [person] = [p1, p2]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +60,11 @@ class discoveryVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         }
     }
     
+    @IBAction func refreshButton(_ sender: Any) {
+        self.tableView.reloadData()
+        refresh()
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "act")!
         
@@ -67,8 +72,98 @@ class discoveryVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         return cell
     }
     
-    func requestConfirmed() {
-        print("yah")
+    func requestConfirmed(id: Int) {
+        
+        print(id)
+        
+        let par:[String: Any] = [
+            "type": "select",
+            "args": [
+                "table":"user_db",
+                "columns":[
+                    "user_from_q"
+                ],
+                "where":["user_id": id]
+            ]       ]
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer l7lx5235jebsvtm36nxxhtiiy6poupk1",
+            "Content-Type": "application/json"
+        ]
+        
+        
+        Alamofire.request("https://data.breezily98.hasura-app.io/v1/query", method: .post, parameters: par, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            
+            print(response.result.value)
+            let result = response.result.value
+            let JSON = result as! NSArray
+            let v = JSON[0] as! NSDictionary
+            var temp = v["user_from_q"] as! [String]
+            
+            temp.insert(self_id!, at: 0)
+            
+            let new_js: [String: Any] = [
+                "type": "update",
+                "args": [
+                    "table": "user_db",
+                    "$set": ["user_from_q": temp],
+                    "where": ["user_id": id]
+                    
+                ]
+            ]
+            
+            Alamofire.request("https://data.breezily98.hasura-app.io/v1/query", method: .post, parameters: new_js, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                
+                print(response.result.value)
+
+                
+            }
+
+            
+        }
+        
+        
+        
+        let s_send:[String: Any] = [
+            "type": "select",
+            "args": [
+                "table":"user_db",
+                "columns":
+                    ["user_send_q"],
+                "where":["user_id": self_id]
+            ]       ]
+        
+        
+        Alamofire.request("https://data.breezily98.hasura-app.io/v1/query", method: .post, parameters: s_send, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            
+            print(response.result.value)
+            let result = response.result.value
+            let JSON = result as! NSArray
+            let v = JSON[0] as! NSDictionary
+            var temp = v["user_send_q"] as! [String]
+            
+            temp.insert(String(id), at: 0)
+            
+            let new_js: [String: Any] = [
+                "type": "update",
+                "args": [
+                    "table": "user_db",
+                    "$set": ["user_send_q": temp],
+                    "where": ["user_id": self_id]
+                    
+                ]
+            ]
+            
+            Alamofire.request("https://data.breezily98.hasura-app.io/v1/query", method: .post, parameters: new_js, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                
+                print(response.result.value)
+                
+                
+            }
+            
+            
+        }
+
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -77,7 +172,7 @@ class discoveryVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             let alertController = UIAlertController(title: "Request Confirmation", message:
                 "Are you sure you want to send the request?", preferredStyle: UIAlertControllerStyle.alert)
             
-            alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default,handler: {UIAlertAction in self.requestConfirmed()}))
+            alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default,handler: {UIAlertAction in self.requestConfirmed(id: 1)}))
             
             alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default,handler: nil))
             
@@ -89,7 +184,67 @@ class discoveryVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         return [sendRQAction]
     }
     
+    func refresh(){
+        let par:[String: Any] = [
+            "type": "select",
+            "args": [
+                "table":"user_db",
+                "columns":[
+                    "user_from_q"
+                ],
+                "where":["user_id": self_id]
+            ]       ]
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer l7lx5235jebsvtm36nxxhtiiy6poupk1",
+            "Content-Type": "application/json"
+        ]
+        
+        
+        Alamofire.request("https://data.breezily98.hasura-app.io/v1/query", method: .post, parameters: par, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            
+            print(response.result.value)
+            let result = response.result.value
+            let JSON = result as! NSArray
+            let v = JSON[0] as! NSDictionary
+            var temp = v["user_from_q"] as! [String]
+            
+            for index in 0..<temp.count {
+                let id = temp[index]
+                self.people = []
+                let js:[String: Any] = [
+                    "type": "select",
+                    "args": [
+                        "table":"user_db",
+                        "columns":[
+                            "user_fname", "user_tags", "user_major", "user_iden", "user_id", "user_time", "user_class", "user_from_q"
+                        ],
+                        "where":["user_id": id]
+                    ]       ]
+                
+                let headers: HTTPHeaders = [
+                    "Authorization": "Bearer l7lx5235jebsvtm36nxxhtiiy6poupk1",
+                    "Content-Type": "application/json"
+                ]
+                
+                
+                Alamofire.request("https://data.breezily98.hasura-app.io/v1/query", method: .post, parameters: js, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                    
+                    print(response.result.value)
+                    let result = response.result.value
+                    let JSON = result as! NSArray
+                    let v = JSON[0] as! NSDictionary
+                    
+                    var p1 = person(id: v["user_id"] as! Int, name: v["user_fname"] as! String, loginTime: v["user_time"] as! String, tags: v["user_tags"] as! [String], isStudent: v["user_iden"] as! String, classYear: v["user_class"] as! String, isActive: true, major: v["user_major"] as! String, sendFrom: v["user_from_q"] as! [String])
+                    self.people.append(p1)
+            }
+            
+            
+        }
+    }
     
     
     
+}
+
 }

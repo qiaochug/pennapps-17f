@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,6 +33,11 @@
                                         <barButtonItem key="leftBarButtonItem" title="Profile" id="fiy-EK-Tdy">
                                             <connections>
                                                 <segue destination="cSK-E2-aSI" kind="show" id="OOi-Rz-Jtj"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="M9C-64-Gqc">
+                                            <connections>
+                                                <action selector="refreshButton:" destination="kFa-70-KoF" id="g99-36-hJk"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -84,37 +90,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8c-gj-lsC">
-                                <rect key="frame" x="265" y="280" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8c-gj-lsC">
+                                <rect key="frame" x="156" y="425" width="63" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="1" green="0.53449639281148387" blue="0.12715350257072777" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.40556037425994873" green="0.99986463785171509" blue="0.49437791109085083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="cSK-E2-aSI" kind="show" id="Kiv-V1-9t9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HzG-4l-ByW">
-                                <rect key="frame" x="161" y="480" width="53" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="request"/>
-                                <connections>
-                                    <action selector="requestButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CzT-2v-oTP"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D68-3Z-mPt">
-                                <rect key="frame" x="120" y="377" width="47" height="30"/>
+                                <rect key="frame" x="271" y="46" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Report"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Report">
+                                    <color key="titleColor" red="1" green="0.52387924597887181" blue="0.11150080550179087" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="reportButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="deS-tv-DAy"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="E8c-gj-lsC" secondAttribute="bottom" constant="194" id="9Wj-jB-e0O"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="E8c-gj-lsC" secondAttribute="trailing" constant="140" id="erg-4L-AWL"/>
+                            <constraint firstItem="E8c-gj-lsC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="405" id="fkm-KS-M79"/>
+                            <constraint firstItem="E8c-gj-lsC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="140" id="yJU-6q-JP3"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="124" y="-39"/>
+            <point key="canvasLocation" x="124" y="-39.130434782608695"/>
         </scene>
         <!--Requests-->
         <scene sceneID="yoU-M8-V13">
@@ -138,6 +148,11 @@
                                         <barButtonItem key="leftBarButtonItem" title="Profile" id="t7x-Tc-SZI">
                                             <connections>
                                                 <segue destination="cSK-E2-aSI" kind="show" id="R1z-UF-hp8"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="ntr-3F-YlK">
+                                            <connections>
+                                                <action selector="refreshButton:" destination="zcG-qO-0GC" id="zbB-7Q-SRa"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -284,7 +299,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="83" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HtB-zv-sEz">
-                                <rect key="frame" x="0.0" y="56" width="375" height="562"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="611"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="1" green="0.57866796119999997" blue="0.31642416719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -460,7 +475,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxV-2j-aky">
                                 <rect key="frame" x="164" y="583" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.05073363333940506" green="0.95423465967178345" blue="0.029768388718366623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.95423465967178345" green="0.61069921422247242" blue="0.43710667271434583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" red="0.99220126867294312" green="0.98856967687606812" blue="0.97173255681991577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -505,6 +520,6 @@
         <image name="search" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wB0-E7-hLd"/>
+        <segue reference="Kiv-V1-9t9"/>
     </inferredMetricsTieBreakers>
 </document>

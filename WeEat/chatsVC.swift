@@ -10,6 +10,8 @@ import UIKit
 
 var friends = [p1, p2, p3]
 
+
+
 class chatsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
@@ -31,11 +33,11 @@ class chatsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if friends.count < 5 {
+        if friends.count < 30 {
             return friends.count
         }
         else {
-            return 5
+            return 30
         }
     }
     
